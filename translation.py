@@ -4,8 +4,7 @@ Buddy I am a Telegram File convert Bot maintained by my master @SI_NN_ER_LS.
 
 By using me your can add coustom thumbnail to your video.
 
-To find out more about how to use me click➡️ /help
- """
+To find out more about how to use me click➡️ /help."""
     ABS_TEXT = " Please don't be selfish."
     BANNED_USER_TEXT = "you are banned"
     UPGRADE_TEXT = "No upgrade plan 🥰"
