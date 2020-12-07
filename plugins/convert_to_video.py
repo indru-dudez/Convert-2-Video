@@ -141,8 +141,8 @@ async def convert_to_video(bot, update):
             time_taken_for_upload = (end_two - end_one).seconds
             await bot.edit_message_text(
                 text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG.format(time_taken_for_download, time_taken_for_upload),
-                chat_id=update.chat.id,
-                message_id=update.message_id,
+                chat_id=update.message.chat.id,
+                message_id=update.message.message_id,
                 disable_web_page_preview=True
             )
     else:
