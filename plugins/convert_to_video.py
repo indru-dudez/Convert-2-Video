@@ -133,7 +133,7 @@ async def convert_to_video(bot, update):
                 os.remove(the_real_download_location)
               #  os.remove(thumb_image_path)
             except:
-                pass
+               pass
             time_taken_for_download = (end_one - start).seconds
             time_taken_for_upload = (end_two - end_one).seconds
             await bot.edit_message_text(
