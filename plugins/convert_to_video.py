@@ -61,6 +61,7 @@ async def convert_to_video(bot, update):
             )
         )
         if the_real_download_location is not None:
+            end_one = datetime.now()
             bot.edit_message_text(
                 text=Translation.SAVED_RECVD_DOC_FILE,
                 chat_id=update.chat.id,
@@ -128,16 +129,20 @@ async def convert_to_video(bot, update):
                     a,
                     c_time
                 )
-            )
+            else:
+                logger.info("Did this happen? :\\")
+            end_two = datetime.now()
             try:
-                os.remove(the_real_download_location)
-              #  os.remove(thumb_image_path)
+                os.remove(download_directory)
+                os.remove(thumb_image_path)
             except:
-               pass
+                pass
+            time_taken_for_download = (end_one - start).seconds
+            time_taken_for_upload = (end_two - end_one).seconds
             await bot.edit_message_text(
-                text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG,
-                chat_id=update.chat.id,
-                message_id=a.message_id,
+                text=Translation.AFTER_SUCCESSFUL_UPLOAD_MSG.format(time_taken_for_download, time_taken_for_upload),
+                chat_id=update.message.chat.id,
+                message_id=update.message.message_id,
                 disable_web_page_preview=True
             )
     else:
